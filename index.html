@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/885c47fbfa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body onload="onInit()">
+    <div class="header-container ">
+        <div class="nav ">
+            <span class="logo "></span>
+            <span class="shop-name "><img class="logo2" src="img/logo.png" alt=""></span>
+        </div>
+        <div class="nav ">
+            <span class="username-display none-display ">Name FamilyName</span>
+        </div>
+        <div class=""> 
+            <button onclick="onLogout()"
+            class=" log-button logout-button none-display ">Logout</button>
+            <button onclick="onSignupNav()"
+            class=" log-button signup-button none-display ">Signup</button>
+            <button onclick="onLoginNav()"
+            class=" log-button login-button none-display ">Login</button>
+            <button onclick="onAddBook()"
+            class=" log-button login-button add-book-button ">Add A Book</button>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <table class="books-table">
+             <thead>
+                 <tr class="tr-head">
+                     <td>Id</td>
+                     <td class="sort-trigger" onclick="sortBooks('bookName')">Book Title</td>
+                     <td class="sort-trigger" onclick="sortBooks('bookAuthor')">Author</td>
+                     <td class="sort-trigger" onclick="sortBooks('bookPrice')">Price</td>
+                     <td>Book Details</td>
+                     <td>Update</td>
+                     <td>Delete</td>
+                    </tr>
+             </thead>
+             <tbody class="table-body">
+
+             </tbody>
+        </table>
+
+
+    </div>
+    <div class="book-modal none-display " >
+
+    </div>
+   
+    <div class="add-book-modal none-display " >
+        <div class="add-book-title ">
+            <span>📗</span><span>📘</span><span>📕</span>
+        </div>
+        <div class="input-div">
+            <input class="input1 book-title " type="text" placeholder="Book Title">
+        </div>
+        <div class="input-div">
+            <input class="input1 book-author " type="text" placeholder="Author Name">
+        </div>
+        <div class="input-div">
+            <input class="input1 book-price " type="text" placeholder="Book Price">
+        </div>
+        <div class="input-div">
+            <input class="input1 image-url " type="url" name="" id="" placeholder="Image Url">
+        </div>
+            <div class="button-div">
+       <button class="button submit-button" onclick="onSaveBookToData()">Save</button>
+    </div>
+    </div>
+    <div class="missing-data none-display "  
+    onclick="document.querySelector('.missing-data').classList.add('none-display')">
+        <span>Missing Data, Please Fill the Remaining Details </span>
+        <!-- <button  class="btn-close-modal" onclick="onCloseModal(event)">Close Modal</button> -->
+    </div>
+
+    <div class="paging">
+        <button class="btn-frwd" onclick="onMovingPreviousPage()">
+            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+        </button>
+        <button class="first-page-number">1</button>
+        <button class="btn-prev" onclick="onMovingNextPage()" >
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </button>
+       </div>
+    
+    <script src="js/utils.js"></script>
+    <script src="js/book-storage.js"></script>
+    <script src="js/book-service.js"></script>
+    <script src="js/book-controller.js"></script>
+</body>
+</html>
+
