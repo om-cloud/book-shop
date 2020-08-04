@@ -35,12 +35,12 @@ function updateBookRate(secretId, change){
 }
 
 function sortBooks(sortBy) {
-    if (sortBy === 'bookName' || sortBy === 'bookAuthor') {
-        gBooks.sort((bookA, bookB) => bookA[sortBy] /*.toUpperCase()*/ > bookB[sortBy] /*.toUpperCase()*/ ? 1 : -1);
-    } else if (sortBy === 'bookPrice') {
-        gBooks.sort((bookA, bookB) => bookB[sortBy] /*.toUpperCase()*/ > bookA[sortBy] /*.toUpperCase()*/ ? 1 : -1);
+   // if (sortBy === 'bookName' || sortBy === 'bookAuthor') {
+        gBooks.sort((bookA, bookB) => bookA[sortBy]  > bookB[sortBy]  ? 1 : -1);
+    //} else if (sortBy === 'bookPrice') {
+    //    gBooks.sort((bookA, bookB) => bookB[sortBy]  > bookA[sortBy]  ? 1 : -1);
     }
-}
+   
 
 function createBooks() {
     gBooks = _getBooksFromStorage();
