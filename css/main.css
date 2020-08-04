@@ -9,6 +9,25 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+/* body.rtl {
+    direction: rtl;
+} */
+.rtl{
+    direction:rtl;
+    text-align: right;
+    justify-content: right;
+}
+.ltr{
+    direction:ltr;
+    text-align: left;
+    justify-content: left;
+}
+.td{
+    text-align: center;
+}
+.p{
+    text-align: justify;
+}
 .header-container {
     top: 0;
     display: flex;
@@ -28,10 +47,17 @@ body {
     margin-left: 20px;
     font-family: 'Noto Sans JP', sans-serif;
 }
+.dropdown-item{
+    cursor:pointer;
+}
 
 .nav {
     flex-grow: 10;
 }
+.dropdown {
+    flex-grow: 0.3
+}
+
 
 .logo2 {
     padding-top: 4px;
@@ -72,7 +98,10 @@ body {
     width: 90%;
     margin-top: -40px;
     border-collapse: collapse;
+    display: inline-table;
+    
 }
+
 
 .tr-head td {
     font-weight: 500;
@@ -81,13 +110,13 @@ body {
 
 td {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-content: center;
     align-items: center;
     padding-right: 8px;
     height: 40px;
     margin-top: 12px;
-    text-align: left;
+  
     display: table-cell;
     vertical-align: center;
     /* border-bottom: 1px solid #ddd; */
@@ -152,7 +181,7 @@ tr:hover {
 .book-rate{
   width:40px;
   text-align: center; 
-  height:18px;
+  height:20px;
 }
 
 .first-page-number,
@@ -343,7 +372,7 @@ tr:hover {
     font-family: 'Noto Sans JP', sans-serif;
     margin-right: 20px;
     flex-grow: 0.9;
-    outline: none;
+    outline: none!important;
     border: rgb(63, 122, 248) 1px solid;
     color: rgb(2, 68, 131);
     background: rgb(255, 255, 255);

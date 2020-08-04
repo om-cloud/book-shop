@@ -1,5 +1,7 @@
 'use-script'
 
+
+
 function makeId(length = 8) {
     var txt = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -21,11 +23,11 @@ function createUpperCaseEachWord(str) {
     return finalStr.trim()
 }
 
-function getLoremIpsum(wordsCount) {
+function getLoremIpsum(wordsCount, language) {
     var sentence = '';
     var counter = 0;
     for (var i = 0; i < wordsCount; i++) {
-        sentence += getWord();
+        sentence += getWord(language);
         sentence += ' ';
         counter++;
         if (counter === 12) {
@@ -37,18 +39,24 @@ function getLoremIpsum(wordsCount) {
 }
 
 
-function getWord() {
+function getWord(language) {
     var word = '';
     var wordLength = getRandomInt(3, 6);
     for (var i = 0; i < wordLength; i++) {
-        word += getLetter();
+        word += getLetter(language);
     }
     return word
 }
 
-function getLetter() {
-    var englishLetters = 'abcdefghijklmnopqrstuvxxyz';
-    var currChar = englishLetters.charAt(getRandomInt(0, 26));
+function getLetter(language) {
+    if(language === 'en'){
+    var letters = 'abcdefghijklmnopqrstuvxxyz';
+    var arrlength = 26
+    }else if(language==='he'){
+    var letters = 'אבגדהוזחטיכלמנסעפצקרשת';
+    var arrlength = 22;
+    }
+    var currChar = letters.charAt(getRandomInt(0, arrlength));
     return currChar
 }
 

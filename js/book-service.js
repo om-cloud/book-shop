@@ -2,9 +2,11 @@
 
 var gBooks;
 var gSortBy = 'bookName';
+var gSecretId;
 var KEY = 'myBooks';
 PAGE_SIZE = 2;
 var gPageIdx = 0;
+var gIsBookModalOpen=false;
 
 
 

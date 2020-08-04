@@ -3,20 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap core CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
     <script src="https://kit.fontawesome.com/885c47fbfa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body onload="onInit()">
+<body onload="onInit()" class=" ">
     <div class="header-container ">
         <div class="nav ">
             <span class="logo "></span>
             <span class="shop-name "><img class="logo2" src="img/logo.png" alt=""></span>
         </div>
+
         <div class="nav ">
             <span class="username-display none-display ">Name FamilyName</span>
         </div>
-        <div class=""> 
+        
+        <div class="dropdown show " >
+            <a class="btn btn-outline-primary dropdown-toggle" 
+            style="background-color: white; color:rgb(13, 58, 156);height:32px; font-size:14px"  role="button" 
+            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" 
+           data-trans="choose-language"
+            aria-expanded="false">
+             Choose Language
+            </a>         
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink"
+           >
+              <a class="dropdown-item"   onclick="onSetLang('en')">English</a>
+              <a class="dropdown-item"   onclick="onSetLang('he')">עברית</a>
+            </div>
+          </div>
+        <div class="buttons-group "> 
+
             <button onclick="onLogout()"
             class=" log-button logout-button none-display ">Logout</button>
             <button onclick="onSignupNav()"
@@ -24,22 +45,24 @@
             <button onclick="onLoginNav()"
             class=" log-button login-button none-display ">Login</button>
             <button onclick="onAddBook()"
-            class=" log-button login-button add-book-button ">Add A Book</button>
+            class=" log-button login-button add-book-button "
+            style="width:140px">Add A Book</button>
         </div>
+
     </div>
 
     <div class="container">
 
         <table class="books-table">
              <thead>
-                 <tr class="tr-head">
-                     <td>Id</td>
-                     <td class="sort-trigger" onclick="onSortBooks('bookName')">Book Title</td>
-                     <td class="sort-trigger" onclick="onSortBooks('bookAuthor')">Author</td>
-                     <td class="sort-trigger" onclick="onSortBooks('bookPrice')">Price</td>
-                     <td>Book Details</td>
-                     <td>Update</td>
-                     <td>Delete</td>
+                 <tr  class="tr-head">
+                     <td data-trans="book-id">Id</td>
+                     <td class="sort-trigger" data-trans="book-title" onclick="onSortBooks('bookName')">Book Title</td>
+                     <td class="sort-trigger" data-trans="author" onclick="onSortBooks('bookAuthor')">Author</td>
+                     <td class="sort-trigger" data-trans="price" onclick="onSortBooks('bookPrice')">Price</td>
+                     <td data-trans="book-details">Book Details</td>
+                     <td data-trans="update">Update</td>
+                     <td data-trans="delete">Delete</td>
                     </tr>
              </thead>
              <tbody class="table-body">
@@ -58,24 +81,30 @@
             <span>📗</span><span>📘</span><span>📕</span>
         </div>
         <div class="input-div">
-            <input class="input1 book-title " type="text" placeholder="Book Title">
+            <input class="input1 book-title " data-trans="book-title" 
+            type="text" placeholder="Book Title">
         </div>
         <div class="input-div">
-            <input class="input1 book-author " type="text" placeholder="Author Name">
+            <input class="input1 book-author " data-trans="book-author"
+            type="text" placeholder="Book Author">
         </div>
         <div class="input-div">
-            <input class="input1 book-price " type="text" placeholder="Book Price">
+            <input class="input1 book-price " data-trans="book-price"
+            type="text" placeholder="Book Price">
         </div>
         <div class="input-div">
-            <input class="input1 image-url " type="url" name="" id="" placeholder="Image Url">
+            <input class="input1 image-url " data-trans="image-url"
+            type="url" name="" id="" placeholder="Image Url">
         </div>
             <div class="button-div">
-       <button class="button submit-button" onclick="onSaveBookToData()">Save</button>
+       <button class="button submit-button" data-trans="save"
+       onclick="onSaveBookToData()">Save</button>
     </div>
     </div>
     <div class="missing-data none-display "  
     onclick="document.querySelector('.missing-data').classList.add('none-display')">
-        <span>Missing Data, Please Fill the Remaining Details </span>
+        <span data-trans="missing-data" >
+            Missing Data, Please Fill the Remaining Details </span>
         <!-- <button  class="btn-close-modal" onclick="onCloseModal(event)">Close Modal</button> -->
     </div>
 
@@ -88,8 +117,15 @@
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
         </button>
        </div>
-    
+       
+  <!-- Plugin JavaScript -->
+  <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
+
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="js/utils.js"></script>
+    <script src="js/i18n-service.js"></script>
     <script src="js/book-storage.js"></script>
     <script src="js/book-service.js"></script>
     <script src="js/book-controller.js"></script>
